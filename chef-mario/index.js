@@ -33,17 +33,32 @@ function removeDupesFromArray(arr) {
 		} else {
 			return;
 		}
-	});
+	});\
 	return removedDuplicates;
 }
 
-console.log(removeDupesFromArray(eggScrambleRecipe));
-console.log(
-	removeDupesFromArray([
-		'🌈 rainbow',
-		'🦄 unicorn',
-		'🍭 lollipops',
-		'🦄 unicorn',
-		'🍭 lollipops',
-	])
-);
+function betterRemoveDupes(arr) {
+	const lookup = {};
+	const results = arr.filter((ingr) => {
+		if (!lookup[ingr]) {
+			lookup[ingr] = true;
+			return true;
+		} else {
+			return false;
+		}
+	});
+
+	return results;
+}
+
+console.log(betterRemoveDupes(eggScrambleRecipe));
+// console.log(removeDupesFromArray(eggScrambleRecipe));
+// console.log(
+// 	removeDupesFromArray([
+// 		'🌈 rainbow',
+// 		'🦄 unicorn',
+// 		'🍭 lollipops',
+// 		'🦄 unicorn',
+// 		'🍭 lollipops',
+// 	])
+// );
